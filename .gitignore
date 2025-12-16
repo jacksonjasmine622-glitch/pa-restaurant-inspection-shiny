@@ -2,6 +2,9 @@
 .Rhistory
 .Rapp.history
 
+# Raw input data (too large for repo)
+data/raw/
+
 # Session Data files
 .RData
 .RDataTmp
