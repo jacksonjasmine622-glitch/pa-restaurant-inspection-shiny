@@ -1,6 +1,5 @@
 # ============================================================
 # APP
-# Data 4100 – Final Project
 # Restaurant Spending Growth Analysis (Q1 2024 vs Q1 2025)
 # Jasmine Jackson
 # ============================================================
@@ -296,3 +295,4 @@ server <- function(input, output, session) {
 
 
 shinyApp(ui = ui, server = server)
+
