@@ -21,8 +21,8 @@ library(scales)
 # Load Pre-processed Data
 # -----------------------------
 cat("Loading pre-processed data...\n")
-city_yoy <- readRDS("processed_data/city_yoy.rds")
-map_sf <- readRDS("processed_data/map_sf.rds")
+city_yoy <- readRDS("data/processed/city_yoy.rds")
+map_sf <- readRDS("data/processed/map_sf.rds")
 cat("Data loaded successfully!\n")
 cat("City YoY rows:", nrow(city_yoy), "\n")
 cat("Map SF rows:", nrow(map_sf), "\n")
@@ -293,5 +293,6 @@ server <- function(input, output, session) {
       theme(plot.title = element_text(hjust = 0.5))
   })
 }
+
 
 shinyApp(ui = ui, server = server)
