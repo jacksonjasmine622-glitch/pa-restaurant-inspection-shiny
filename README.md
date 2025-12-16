@@ -19,5 +19,9 @@ The app allows users to:
 ## Project Context
 This app was developed as part of analytics coursework and is an ongoing project that may continue to evolve based on feedback.
 
+## Data Sources
+This project uses aggregated restaurant spending data derived from SafeGraph Spending Patterns, accessed via the Dewey Database for academic use.
+Raw transaction-level data is not included in this repository due to size and access restrictions. Only processed, aggregated outputs required for the Shiny application are included.
+
 ## Notes
 The goal of this project is to demonstrate data cleaning, exploratory analysis, and interactive dashboard development using R Shiny.
