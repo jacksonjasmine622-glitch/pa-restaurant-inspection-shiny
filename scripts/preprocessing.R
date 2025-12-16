@@ -1,8 +1,6 @@
 # ============================================================
 # PREPROCESSING SCRIPT
-# Data 4100 – Final Project
 # Restaurant Spending Growth Analysis (Q1 2024 vs Q1 2025)
-# Jasmine Jackson
 # ============================================================
 
 library(dplyr)
@@ -14,8 +12,8 @@ library(stringr)
 # -----------------------------
 # Data Paths
 # -----------------------------
-path_2024 <- "data/Q1 2024"
-path_2025 <- "data/Q1 2025"
+path_2024 <- "data/raw/Q1_2024"
+path_2025 <- "data/raw/Q1_2025"
 
 # -----------------------------
 # Read In Dewey Data
@@ -96,7 +94,7 @@ cat("Processing spatial data...\n")
 map_data <- city_yoy |>
   filter(year == 2025, state == "PA")
 
-pa_places <- st_read("data/tl_2025_42_place.shp") |>
+pa_places <- st_read("data/spatial/tl_2025_42_place.shp") |>
   st_transform(4326) |>
   mutate(
     city_clean = str_trim(str_to_upper(NAME)),
@@ -119,21 +117,22 @@ map_sf <- pa_places |>
 # -----------------------------
 cat("Saving processed data...\n")
 
-# Create processed_data directory
-dir.create("processed_data", showWarnings = FALSE)
+# Create processed data directory
+dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
 
 # Save as compressed RDS files
-saveRDS(city_yoy, "processed_data/city_yoy.rds", compress = "xz")
-saveRDS(map_sf, "processed_data/map_sf.rds", compress = "xz")
+saveRDS(city_yoy, "data/processed/city_yoy.rds", compress = "xz")
+saveRDS(map_sf, "data/processed/map_sf.rds", compress = "xz")
 
 cat("\n=== PREPROCESSING COMPLETE ===\n")
 cat("Files created:\n")
-cat("  - processed_data/city_yoy.rds\n")
-cat("  - processed_data/map_sf.rds\n")
+cat("  - data/processed/city_yoy.rds\n")
+cat("  - data/processed/map_sf.rds\n")
 cat("\nOriginal data size:\n")
 cat("  raw_data:", format(object.size(raw_data), units = "MB"), "\n")
 cat("\nProcessed data size:\n")
 cat("  city_yoy:", format(object.size(city_yoy), units = "MB"), "\n")
 cat("  map_sf:", format(object.size(map_sf), units = "MB"), "\n")
 cat("\nFile sizes on disk:\n")
-print(file.info(c("processed_data/city_yoy.rds", "processed_data/map_sf.rds"))[c("size")])
+print(file.info(c("data/processed/city_yoy.rds", "data/processed/map_sf.rds"))[c("size")])
+
