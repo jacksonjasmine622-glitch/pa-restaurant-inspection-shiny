@@ -8,7 +8,7 @@ The app allows users to:
 - Interact with visualizations without writing code
 
 ## Live App
-👉 https://jjaz-2996.shinyapps.io/pa_restaurant_analysis_shiny/
+➡️ https://jjaz-2996.shinyapps.io/pa_restaurant_analysis_shiny/
 
 ## Tools Used
 - R
